@@ -6,27 +6,10 @@ mongoose.connect("mongodb://127.0.0.1:27017/task-manager-api", {
   useUnifiedTopology: true,
 });
 
-const User = mongoose.model("User", {
-  name: {
-    type: String,
-  },
-  age: {
-    type: Number,
-  },
-});
-
-const Task = mongoose.model("Task", {
-  discretion: {
-    type: String,
-  },
-  completed: {
-    type: Boolean,
-  },
-});
-
 // const me = new User({
-//   name: "Saeed",
-//   age: 23,
+//   name: "   Omar    ",
+//   email: " Omar@SABRA.SMS       ",
+//   password: " PASS123 ",
 // });
 
 // me.save()
@@ -38,7 +21,7 @@ const Task = mongoose.model("Task", {
 //   });
 
 // const firstT = new Task({
-//   discretion: "Disc 1",
+//   discretion: "Disc 5",
 //   completed: true,
 // });
 
@@ -51,8 +34,8 @@ const Task = mongoose.model("Task", {
 //     console.log("Error!", error);
 //   });
 
-// Task.deleteOne({
-//   completed: true,
+// User.deleteMany({
+//   name: "Sabra",
 // }).then((result) => {
 //   console.log(result);
 // });
