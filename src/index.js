@@ -28,3 +28,15 @@ app.listen(port, () => {
 // };
 
 // myFunction();
+
+const jwt = require("jsonwebtoken");
+
+const myFunction = async () => {
+  const token = jwt.sign({ _id: "123" }, "thisismynewcourse");
+  console.log(token);
+
+  const data = jwt.verify(token, "thisismynewcourse");
+  console.log(data);
+};
+
+myFunction();
