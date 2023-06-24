@@ -53,12 +53,12 @@ app.listen(port, () => {
 
 // myFunction();
 
-const Task = require("./models/task");
+// const Task = require("./models/task");
 
-const main = async () => {
-  const task = await Task.findById("64919abe745dc56e3cc125e0");
-  await task.populate("owner").execPopulate();
-  console.log(task.owner);
-};
+// const main = async () => {
+//   const task = await Task.findById("64919abe745dc56e3cc125e0");
+//   await task.populate("owner").execPopulate();
+//   console.log(task.owner);
+// };
 
-main();
+// main();
