@@ -91,14 +91,23 @@ const upload = multer({
   },
   fileFilter(req, file, cd) {
     if (!file.originalname.match(/\.(jpg|jpeg|png)$/)) {
-      return cd("Error: Please Upload a Photo.");
+      return cd(new Error("Please Upload a Photo."));
     }
     cd(undefined, true);
   },
 });
 
-router.post("/users/me/avatar", upload.single("avatar"), (req, res) => {
-  res.send();
-});
+router.post(
+  "/users/me/avatar",
+  upload.single("avatar"),
+  (req, res) => {
+    res.send();
+  },
+  (error, req, res, next) => {
+    res.status(400).send({
+      Error: error.message,
+    });
+  }
+);
 
 module.exports = router;
