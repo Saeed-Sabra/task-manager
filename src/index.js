@@ -18,33 +18,33 @@ const port = process.env.PORT || 3000;
 //   res.status(503).send("Server Under work!");
 // });
 
-const multer = require("multer");
+// const multer = require("multer");
 
-const upload = multer({
-  dest: "images",
-  limits: {
-    fileSize: 1000000,
-  },
-  fileFilter(req, file, cd) {
-    if (!file.originalname.match(/\.(doc|docx)$/)) {
-      return cd(new Error("Please Upload a Word"));
-    }
-    cd(undefined, true);
-  },
-});
+// const upload = multer({
+//   dest: "images",
+//   limits: {
+//     fileSize: 1000000,
+//   },
+//   fileFilter(req, file, cd) {
+//     if (!file.originalname.match(/\.(doc|docx)$/)) {
+//       return cd(new Error("Please Upload a Word"));
+//     }
+//     cd(undefined, true);
+//   },
+// });
 
-app.post(
-  "/upload",
-  upload.single("upload"),
-  (req, res) => {
-    res.send();
-  },
-  (error, req, res, next) => {
-    res.status(400).send({
-      error: error.message,
-    });
-  }
-);
+// app.post(
+//   "/upload",
+//   upload.single("upload"),
+//   (req, res) => {
+//     res.send();
+//   },
+//   (error, req, res, next) => {
+//     res.status(400).send({
+//       error: error.message,
+//     });
+//   }
+// );
 
 app.use(express.json());
 app.use(userRouter);
